@@ -1,9 +1,10 @@
-function updateTable() {
-    fetch('users.php')  
+function updateTable() { 
+    fetch('users.php') 
         .then(response => response.json()) 
         .then(data => {
             const tableBody = document.querySelector('#user-table tbody');
-            tableBody.innerHTML = ''; 
+            tableBody.innerHTML = '';
+
             data.forEach(user => {
                 const row = document.createElement('tr');
                 const idCell = document.createElement('td');
@@ -21,7 +22,6 @@ function updateTable() {
                 const emailCell = document.createElement('td');
                 emailCell.textContent = user.email;
                 row.appendChild(emailCell);
-
                 tableBody.appendChild(row);
             });
         })
